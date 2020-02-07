@@ -3,8 +3,7 @@
 
 int str_to_int(char *s)
 {
-    int i;
-    int d;
+    int i, d;
     int v = 0;
     int slen = strlen(s);
 
@@ -19,7 +18,6 @@ int str_to_int(char *s)
 
 int main(int argc, char **argv)
 {
-    printf("%s == %d\n", argv[1], str_to_int(argv[1]));
-
+    printf("%s = %d\n", argv[1], str_to_int(argv[1]));
     return 0;
 }

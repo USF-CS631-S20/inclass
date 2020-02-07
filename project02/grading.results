@@ -1,0 +1,126 @@
+pi@rpi4:~/nt $ ./nt 0
+0000 0000 0000 0000 0000 0000 0000 0000 (base 2)
+0b00000000000000000000000000000000 (base 2)
+0x00000000 (base 16)
+0 (base 10 unsigned)
+0 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 1
+0000 0000 0000 0000 0000 0000 0000 0001 (base 2)
+0b00000000000000000000000000000001 (base 2)
+0x00000001 (base 16)
+1 (base 10 unsigned)
+1 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 2
+0000 0000 0000 0000 0000 0000 0000 0010 (base 2)
+0b00000000000000000000000000000010 (base 2)
+0x00000002 (base 16)
+2 (base 10 unsigned)
+2 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -1
+1111 1111 1111 1111 1111 1111 1111 1111 (base 2)
+0b11111111111111111111111111111111 (base 2)
+0xFFFFFFFF (base 16)
+4294967295 (base 10 unsigned)
+-1 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -2
+1111 1111 1111 1111 1111 1111 1111 1110 (base 2)
+0b11111111111111111111111111111110 (base 2)
+0xFFFFFFFE (base 16)
+4294967294 (base 10 unsigned)
+-2 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 4294967295
+1111 1111 1111 1111 1111 1111 1111 1111 (base 2)
+0b11111111111111111111111111111111 (base 2)
+0xFFFFFFFF (base 16)
+4294967295 (base 10 unsigned)
+-1 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 4294967296
+Error: 4294967296 Cannot fit into 32 bits.
+
+pi@rpi4:~/nt $ ./nt 2147483647
+0111 1111 1111 1111 1111 1111 1111 1111 (base 2)
+0b01111111111111111111111111111111 (base 2)
+0x7FFFFFFF (base 16)
+2147483647 (base 10 unsigned)
+2147483647 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -2147483648
+1000 0000 0000 0000 0000 0000 0000 0000 (base 2)
+0b10000000000000000000000000000000 (base 2)
+0x80000000 (base 16)
+2147483648 (base 10 unsigned)
+-2147483648 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -2147483649
+Error: -2147483649 Cannot fit into 32 bits.
+pi@rpi4:~/nt $ ./nt 713
+0000 0000 0000 0000 0000 0010 1100 1001 (base 2)
+0b00000000000000000000001011001001 (base 2)
+0x000002C9 (base 16)
+713 (base 10 unsigned)
+713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 0b00000000000000000000001011001001
+0000 0000 0000 0000 0000 0010 1100 1001 (base 2)
+0b00000000000000000000001011001001 (base 2)
+0x000002C9 (base 16)
+713 (base 10 unsigned)
+713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 0x000002C9
+0000 0000 0000 0000 0000 0010 1100 1001 (base 2)
+0b00000000000000000000001011001001 (base 2)
+0x000002C9 (base 16)
+713 (base 10 unsigned)
+713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -713
+1111 1111 1111 1111 1111 1101 0011 0111 (base 2)
+0b11111111111111111111110100110111 (base 2)
+0xFFFFFD37 (base 16)
+4294966583 (base 10 unsigned)
+-713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 0b11111111111111111111110100110111
+1111 1111 1111 1111 1111 1101 0011 0111 (base 2)
+0b11111111111111111111110100110111 (base 2)
+0xFFFFFD37 (base 16)
+4294966583 (base 10 unsigned)
+-713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt 0xFFFFFD37
+1111 1111 1111 1111 1111 1101 0011 0111 (base 2)
+0b11111111111111111111110100110111 (base 2)
+0xFFFFFD37 (base 16)
+4294966583 (base 10 unsigned)
+-713 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -b 4 -r 0,3 0x000002C9
+1001 (base 2)
+0b1001 (base 2)
+0x9 (base 16)
+9 (base 10 unsigned)
+-7 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -b 8 -r 0,7 0x000002C9
+1100 1001 (base 2)
+0b11001001 (base 2)
+0xC9 (base 16)
+201 (base 10 unsigned)
+-55 (base 10 signed)
+
+pi@rpi4:~/nt $ ./nt -b 4 -r 4,7 0x000002C9
+1100 (base 2)
+0b1100 (base 2)
+0xC (base 16)
+12 (base 10 unsigned)
+-4 (base 10 signed)
+
+
+

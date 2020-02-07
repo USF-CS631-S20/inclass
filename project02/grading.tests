@@ -1,0 +1,73 @@
+Project02 Interactive Grading
+
+During interactive grading you will do the following steps and tests.
+
+Connect and turn on your Raspberry Pi.
+
+Establish an ssh connection via the shell. Make sure you use big fonts
+in you terminal program so that it is easy for use to see your output.
+
+Clone you Project02 repository into the tmp dir.
+
+Compile nt.c. (make is best, just type "make"),.
+
+You need to test all the example from the Project02 web page.
+
+Then do the following
+
+$ ./nt 0
+$ ./nt 1
+$ ./nt 2
+$ ./nt -1
+$ ./nt -2
+$ ./nt 4294967295
+$ ./nt 4294967296
+$ ./nt 429496729600
+$ ./nt 2147483647
+$ ./nt -2147483648
+$ ./nt -2147483649
+
+$ ./nt 713
+
+Feed the binary output of this as input to nt
+Feed the hex output of this as intput to nt
+
+Check results
+
+$ ./nt -713
+
+Feed the binary output of this as input to nt
+Feed the hex output of this as intput to nt
+
+Then using the hex for 713 (0x000002C9) do this:
+
+$ ./nt -b 4 -r 0,3 0x000002C9
+
+Check results.
+
+$ ./nt -b 8 -r 0,7 0x000002C9
+
+(base 10 signed should be negative)
+
+$ ./nt -b 4 -r 4,7 0x000002C9
+
+(base 10 signed should be negative)
+
+$ ./nt
+(You should see a usage message)
+
+We will review your code in GitHub.
+
+Your repo should be clean (no extra files).
+Your code should be clean
+- Consistent formating
+- No commented out code
+- No redundancy
+- Good organization
+- No overly complex code.
+
+You should be able to explain your code.
+- main()
+- all conversion functions
+- any data structures
+
