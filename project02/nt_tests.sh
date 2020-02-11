@@ -42,4 +42,3 @@ run_test "./nt -b 16 -r 16,31 0xABCDEF12"
 run_test "./nt -b 32 -r 0,31 0xABCDEF12"
 run_test "./nt -b 4 -r 16,19 0xABCDEF12"
 run_test "./nt"
-
