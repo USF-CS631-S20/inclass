@@ -1,12 +1,11 @@
 PROGS = second add_main max_main
-OBJS = second.o add_c.o add_s.o \
-       max_c.o max_s.o
+OBJS = second.o add_c.o add_s.o max_c.o max_s.o
 
 CFLAGS = -g
 
 # Pattern rules to avoid explicit rules
 %.o : %.c
-	gcc ${FLAGS} -c -o $@ $<
+	gcc ${CFLAGS} -c -o $@ $<
 
 %.o : %.s
 	as -o $@ $<
