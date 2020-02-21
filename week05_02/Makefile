@@ -1,5 +1,5 @@
-PROGS = second add_main max_main
-OBJS = second.o add_c.o add_s.o max_c.o max_s.o
+PROGS = count_zeros_main
+OBJS = count_zeros_c.o count_zeros_s.o
 
 CFLAGS = -g
 
@@ -13,14 +13,10 @@ CFLAGS = -g
 
 all : ${PROGS}
 
-second : second.s
-	as -o second.o second.s
-	gcc ${CFLAGS} -o second second.o
-
-add_main : add_main.c add_c.o add_s.o
+max_main : max_main.c max_c.o max_s.o
 	gcc ${CFLAGS} -o $@ $^
 
-max_main : max_main.c max_c.o max_s.o
+count_zeros_main : count_zeros_main.c count_zeros_c.o count_zeros_s.o
 	gcc ${CFLAGS} -o $@ $^
 
 clean :
