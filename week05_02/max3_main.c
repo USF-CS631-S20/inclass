@@ -1,21 +1,26 @@
 #include<stdio.h>
 
-int max_c(int a, int b);
-int max_s(int a, int b);
+int max3_c(int a, int b, int c);
+int max3_s(int a, int b, int c);
+int max3f_s(int a, int b, int c);
 
 int main(int argc, char **argv)
 {
     int r;
 
-    r = max_c(1, 2);
-    printf("max_c(1, 2) = %d\n", r);
-    r = max_s(1, 2);
-    printf("max_s(1, 2) = %d\n", r);
+    r = max3_c(1, 2, 3);
+    printf("max3_c(1, 2, 3) = %d\n", r);
+    r = max3_s(1, 2, 3);
+    printf("max3_s(1, 2, 3) = %d\n", r);
+    r = max3f_s(1, 2, 3);
+    printf("max3f_s(1, 2, 3) = %d\n", r);    
 
-    r = max_c(-1, 100);
-    printf("max_c(-1, 100) = %d\n", r);
-    r = max_s(-1, 100);
-    printf("max_s(-1, 100) = %d\n", r);    
+    r = max3_c(-1, 100, 0);
+    printf("max3_c(-1, 100, 0) = %d\n", r);
+    r = max3_s(-1, 100, 0);
+    printf("max3_s(-1, 100, 0) = %d\n", r);
+    r = max3f_s(-1, 100, 0);
+    printf("max3f_s(-1, 100, 0) = %d\n", r);        
 
     return 0;
 }

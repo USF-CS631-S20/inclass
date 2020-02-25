@@ -1,12 +1,16 @@
-int max_c(int a, int b)
+int max3_c(int a, int b, int c)
 {
-    int r;
+    int max;
 
-    if (a > b) {
-        r = a;
-    } else {
-        r = b;
-    }
+    max = a;
     
-    return r;
+    if (b > max) {
+        max = b;
+    }
+
+    if (c > max) {
+        max = c;
+    }
+
+    return max;
 }

@@ -1,5 +1,7 @@
 PROGS = max3_main count_zeros_main smult_main
-OBJS = max3_c.o max3_s.o count_zeros_c.o count_zeros_s.o smult_c.o smult_s.o
+OBJS = max3_c.o max3_s.o max_s.o max3f_s.o \
+       count_zeros_c.o count_zeros_s.o \
+       smult_c.o smult_s.o
 
 CFLAGS = -g
 
@@ -13,7 +15,7 @@ CFLAGS = -g
 
 all : ${PROGS}
 
-max3_main : max3_main.c max3_c.o max3_s.o
+max3_main : max3_main.c max3_c.o max3_s.o max_s.o max3f_s.o
 	gcc ${CFLAGS} -o $@ $^
 
 count_zeros_main : count_zeros_main.c count_zeros_c.o count_zeros_s.o

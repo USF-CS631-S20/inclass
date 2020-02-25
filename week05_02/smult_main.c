@@ -36,21 +36,19 @@ int main(int argc, char **argv)
     copy_array(a, a1, 5);
     copy_array(a, a2, 5);    
         
-    printf("smult_c(");
+    printf("smult(");
     print_array(a1, 5);
     printf(",5,2) = ");
     smult_c(a1, 5, 2);
     print_array(a1, 5);
     printf("\n");
 
-    /*
-    printf("smult_s(");
+    printf("smult(");
     print_array(a2, 5);
     printf(",5,2) = ");
-    smult_s(a2, 5, 2);
+    smult_c(a2, 5, 2);
     print_array(a2, 5);
     printf("\n");    
-    */
     
     return 0;
 }
