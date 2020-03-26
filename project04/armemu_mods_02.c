@@ -141,8 +141,8 @@ void armemu_one(struct arm_state *state)
 {
     unsigned int iw;
     
-     iw = *((unsigned int *) state->regs[PC]);
-    //iw = cache_lookup(state, state->regs[PC]);
+    //iw = *((unsigned int *) state->regs[PC]);
+    iw = cache_lookup(state, state->regs[PC]);
 
     /* Start with most contrained and go to least constrained. */
     if (is_bx_inst(iw)) {
@@ -190,6 +190,7 @@ int main(int argc, char **argv)
     printf("quadratic_c(1, 1, 1, 1) = %r\n", r);
     r = quadratic_s(1, 1, 1, 1);
     printf("quadratic_s(1, 1, 1, 1) = %r\n", r);        
+
     arm_state_init(&state, (unsigned int *) quadratic_s, 1, 1, 1, 1);
     r = armemu(&state);
     printf("quadratic_e(1, 1, 1, 1) = %r\n", r);

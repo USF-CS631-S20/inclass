@@ -1,27 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#define NREGS 16
-#define STACK_SIZE 1024
-#define SP 13
-#define LR 14
-#define PC 15
-
-/* Assembly functions to emulate */
-int add_s(int a, int b);
-int add2_s(int a, int b);
-
-/* The complete machine state */
-struct arm_state {
-    unsigned int regs[NREGS];
-    unsigned int cpsr;
-    unsigned char stack[STACK_SIZE];
-
-    /* metrics */
-    struct ...
-    /* cache */
-    struct ...
-};
+#include "armemu.h"
 
 /* Initialize an arm_state struct with a function pointer and arguments */
 void arm_state_init(struct arm_state *as, unsigned int *func,
@@ -57,7 +37,15 @@ void arm_state_init(struct arm_state *as, unsigned int *func,
     as->regs[1] = arg1;
     as->regs[2] = arg2;
     as->regs[3] = arg3;
+
+    cache_state_init(&as->cstate);
 }
+
+void arm_state_free(struct arm_state *as)
+{
+    cache_state_free(&as->cstate);
+}
+
 
 void arm_state_print(struct arm_state *as)
 {
@@ -125,11 +113,9 @@ void armemu_one(struct arm_state *state)
 {
     unsigned int iw;
     
-    // iw = *((unsigned int *) state->regs[PC]);
-    iw = cache_lookup(state->cache, state->regs[PC];
-    
-    state->metrics.instruction_count += 1;
-    
+    /* iw = *((unsigned int *) state->regs[PC]); */
+    iw = cache_lookup(&state->cstate, state->regs[PC]);
+
     if (is_bx_inst(iw)) {
         armemu_bx(state, iw);
     } else if (is_add_inst(iw)) {
@@ -147,45 +133,4 @@ unsigned int armemu(struct arm_state *state)
 
     return state->regs[0];
 }                
-  
-int main(int argc, char **argv)
-{
-    struct arm_state state;
-    unsigned int r;
-
-    /* Emulate add_s */
-    arm_state_init(&state, (unsigned int *) add_s, 1, 2, 0, 0);
-    arm_state_print(&state);
-    r = armemu(&state);
-    printf("armemu(add_s(1,2)) = %d\n", r);
-
-    /* Emulate add2_s */    
-    arm_state_init(&state, (unsigned int *) add2_s, 1, 2, 0, 0);
-    arm_state_print(&state);
-    r = armemu(&state);
-    printf("armemu(add2_a(1,2)) = %d\n", r);
-
-    /* quadratic */
-    r = quadratic_c(1, 1, 1, 1);
-    printf("quadratic_c(1, 1, 1, 1) = %d\n", r);
-    r = quadratic_s(1, 1, 1, 1);
-    printf("quadratic_s(1, 1, 1, 1) = %d\n", r);
-    arm_state_init(&state, (unsigned int *) quadratic_s, 1, 1, 1, 1);
-    r = armemu(&state);
-    printf("quadratic_e(1, 1, 1, 1) = %d\n", r);
-    arm_state_metrics_print(&state);
-    arm_state_cache_print(&state);
-    
-    return 0;
-}
-
-void test_quadratic_one(int x, int a, int b, int c)
-{
-
-
-}
-
-void test_quadratic(void)
-{
-
-}
+ 
