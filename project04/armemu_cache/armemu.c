@@ -125,21 +125,26 @@ void armemu_one(struct arm_state *state)
 
 unsigned int armemu(struct arm_state *state)
 {
-    int count = 0;
+    /* int count = 0; */
+
     /* Execute instructions until PC = 0 */
     /* This happens when bx lr is issued and lr is 0 */
     while (state->regs[PC] != 0) {
 
+        /*
         if (ARMEMU_DEBUG) {
             arm_state_print(state);
         }
+        */
         
         armemu_one(state);
 
+        /*
         count = count + 1;
-        if (count > MAX_INSTRUCTION_COUT) {
+        if (count > MAX_INSTRUCTION_COUNT) {
             break;
         }
+        */
     }
 
     return state->regs[0];

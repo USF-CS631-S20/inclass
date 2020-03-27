@@ -1,7 +1,7 @@
 /* cache.c - Cache simulator for armemu */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "cache.h"
 #include "utils.h"
@@ -129,7 +129,9 @@ unsigned int cache_lookup(struct cache_state *cstate, unsigned int addr)
     /* This just does a lookup on the first direct mapped cache.
      * You will need to add lookups for the other direct mapped caches
      * and the other cache types */
+
     data = cache_lookup_direct_mapped(&cstate->dm_array[0], addr);
 
+    /* Put sanity check here */
     return data;
 }
