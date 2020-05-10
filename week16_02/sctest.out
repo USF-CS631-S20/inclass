@@ -49,7 +49,7 @@ t[4] sys_write(1, "(", 1)
 
 [4] sys_pipe(<3fbc>)
 [4] sys_write(4, "hello", 5)
-[4] sys_dup(0)
+[4] sys_dup(3)
 [4] sys_read(5, <3f7c>, 5)
 [4] sys_write(1, "p", 1)
 p[4] sys_write(1, "i", 1)
