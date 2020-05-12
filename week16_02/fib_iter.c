@@ -24,9 +24,19 @@ main(int argc, char *argv[])
     int i = 0;
     int rv;
 
+    char *label = NULL;
+
+    if (argc == 2) {
+        label = argv[1];
+    }
+    
     while (1) {
-        rv = fib_iter_c(i);
-        printf(1, "fib_iter(%d) = %d\n", i, rv);
+        rv = fib_iter_c(i);        
+        if (label) {
+            printf(1, "[%s] fib_iter(%d) = %d\n", label, i, rv);
+        } else {
+            printf(1, "fib_iter(%d) = %d\n", i, rv);
+        }
         sleep(30);
         i = i + 1;
     }

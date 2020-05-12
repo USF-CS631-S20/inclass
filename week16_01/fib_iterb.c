@@ -21,15 +21,25 @@ fib_iter_c(int n) {
 int
 main(int argc, char *argv[])
 {
-    int i = 0;
-    int j = 0;
+    unsigned int i = 0;
+    unsigned int j = 0;
     int rv;
 
+    char *label = NULL;
+
+    if (argc == 2) {
+        label = argv[1];
+    }
+    
     while (1) {
-        rv = fib_iter_c(i);
-        printf(1, "fib_iter(%d) = %d\n", i, rv);
+        rv = fib_iter_c(i);        
+        if (label) {
+            printf(1, "[%s] fib_iter(%d) = %d\n", label, i, rv);
+        } else {
+            printf(1, "fib_iter(%d) = %d\n", i, rv);
+        }
         /* busy wait */
-        for (j = 0; j < 10000; j++);
+        for (j = 0; j < 10000000; j++);
         i = i + 1;
     }
 
